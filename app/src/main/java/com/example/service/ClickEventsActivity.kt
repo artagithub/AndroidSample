@@ -1,12 +1,10 @@
-package com.example.sematechclasssession1
+package com.example.service
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.sematechclasssession1.R.layout.activity_click_events
 import com.sematec.basic.utils.AppUtils
 import com.sematec.basic.utils.AppUtils.Companion.toast
 import com.sematec.basic.utils.Constants.Companion.MIN_NAME_VALID_SIZE

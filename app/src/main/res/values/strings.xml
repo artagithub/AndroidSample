@@ -5,4 +5,11 @@
     <string name="login">ثبت نام</string>
     <string name="save">ذخیره</string>
     <string name="cancel">انصراف</string>
+    <string name="movie_title">نام فیلم</string>
+    <string name="movie_year">سال ساخت</string>
+    <string name="movie_imdb">شناسه IMDB</string>
+    <string name="detail">جزییات</string>
+    <string name="movie_rated">نرخ</string>
+    <string name="movie_genre">ژانر</string>
+    <string name="movie_actors">بازیگران</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.sematechclasssession1;
+package com.example.service;
 
 import android.os.Bundle;
 import android.util.Log;
