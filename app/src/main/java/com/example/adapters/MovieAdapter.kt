@@ -24,20 +24,20 @@ class MovieAdapter(val context: Context, val items: MutableList<Search>) : BaseA
         movieTitle.text = item.title
         movieYear.text = item.year
         movieImdbId.text = item.imdbID
-        likeImageView.setOnTouchListener(object:View.OnTouchListener{
-
-            val gestureDetector = GestureDetector(view.context,object : GestureDetector.SimpleOnGestureListener(){
-                override fun onDoubleTap(e: MotionEvent?): Boolean {
-                    likeImageView.setColorFilter(view.context.resources.getColor(R.color.red))
-                    return super.onDoubleTap(e)
-                }
-            })
-
-            override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-                gestureDetector.onTouchEvent(p1)
-                return true
-            }
-        })
+//        likeImageView.setOnTouchListener(object:View.OnTouchListener{
+//
+//            val gestureDetector = GestureDetector(view.context,object : GestureDetector.SimpleOnGestureListener(){
+//                override fun onDoubleTap(e: MotionEvent?): Boolean {
+//                    likeImageView.setColorFilter(view.context.resources.getColor(R.color.red))
+//                    return super.onDoubleTap(e)
+//                }
+//            })
+//
+//            override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
+//                gestureDetector.onTouchEvent(p1)
+//                return true
+//            }
+//        })
         view.setOnClickListener(View.OnClickListener {
             likeImageView.setColorFilter(context.resources.getColor(R.color.red))
         })

@@ -21,7 +21,7 @@ class MovieSearchEngineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_search_engine)
-
+        supportActionBar?.hide()
         search.setOnClickListener {
             searchImage(word.text.toString())
         }
