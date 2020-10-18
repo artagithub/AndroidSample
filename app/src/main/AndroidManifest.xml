@@ -14,7 +14,7 @@
         <activity android:name=".ImdbDetailActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ClickEventsActivity" />
-        <activity android:name=".MovieSearchEngineActivity">
+        <activity android:name="com.example.movie.MovieSearchEngineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

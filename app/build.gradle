@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.sematechclasssession1"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -47,5 +47,10 @@ dependencies {
 
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:4.3.0"
+    implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.8.1"
 
 }

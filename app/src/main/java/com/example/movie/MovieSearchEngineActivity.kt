@@ -1,22 +1,24 @@
-package com.example.service
+package com.example.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.adapters.MovieAdapter
 import com.example.entities.MovieDetailEntity
 import com.example.entities.Search
+import com.example.model.Token
+import com.example.service.R
 import com.google.gson.Gson
 import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.TextHttpResponseHandler
 import com.sematec.basic.utils.log
 import com.sematec.basic.utils.toast
-import cz.msebera.android.httpclient.Header
 import kotlinx.android.synthetic.main.activity_movie_search_engine.*
 
-class MovieSearchEngineActivity : AppCompatActivity() {
+class MovieSearchEngineActivity : AppCompatActivity(), MovieContract.View {
 
     //val url = "https://pixabay.com/api/?key=14649220-5ae78e4612f86b869152790a4&q="
     val url = "http://www.omdbapi.com/?apikey=828e59af&s="
+
+    lateinit var presenter:MovieContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,37 +35,35 @@ class MovieSearchEngineActivity : AppCompatActivity() {
         val restURL = "$url$word&page=1"
         restURL.log("omdbapi_result")
 
+        val result = presenter.searchMovie(word,1)
 
-        client.get(restURL, object : TextHttpResponseHandler() {
-            override fun onSuccess(
-                statusCode: Int,
-                headers: Array<out Header>?,
-                responseString: String?
-            ) {
-                parseResult(responseString)
-                responseString?.log("omdbapi_result")
-            }
 
-            override fun onFailure(
-                statusCode: Int,
-                headers: Array<out Header>?,
-                responseString: String?,
-                throwable: Throwable?
-            ) {
 
-            }
+//        client.get(restURL, object : TextHttpResponseHandler() {
+//            override fun onSuccess(
+//                statusCode: Int,
+//                headers: Array<out Header>?,
+//                responseString: String?
+//            ) {
+//                parseResult(responseString)
+//                responseString?.log("omdbapi_result")
+//            }
+//
+//            override fun onFailure(
+//                statusCode: Int,
+//                headers: Array<out Header>?,
+//                responseString: String?,
+//                throwable: Throwable?
+//            ) {
+//
+//            }
+//
+//        })
 
-        })
 
     }
 
-    private fun parseResult(serverResults: String?) {
-        val gson = Gson()
-        val movieDetailEntity = gson.fromJson(
-            serverResults,
-            MovieDetailEntity::class.java
-        )
-
+    override fun onSearchSuccess(movieDetailEntity: MovieDetailEntity) {
         if (movieDetailEntity.totalResults.toInt() == 0) {
             "No results from server".toast()
             return
@@ -74,6 +74,11 @@ class MovieSearchEngineActivity : AppCompatActivity() {
             val adapter = MovieAdapter(this, movies as MutableList<Search>)
             results.adapter = adapter
         }
-
     }
+
+    override fun onSearchFailded(message: String?) {
+        "Cant load images by retrofit!!".toast()
+    }
+
+
 }
