@@ -32,4 +32,10 @@ class MoviePresenter(val view: MovieContract.View) : MovieContract.Presenter {
         })
 
     }
+
+    override fun likeMovie(movieDetail: Search) {
+        TODO("Not yet implemented")
+    }
+
+
 }
