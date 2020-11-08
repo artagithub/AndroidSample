@@ -8,17 +8,17 @@ class MovieContract {
 
     interface Presenter {
         fun searchMovie(word:String,page:Int)
-        fun likeMovie(movieDetail: Search)
+        fun likeMovie(message:String)
     }
 
 
     interface View {
         fun onSearchSuccess(movieDetail:MovieDetailEntity)
         fun onSearchFailded(message: String?)
-        fun onLikeMovieSuccess(movieDetailEntity: MovieDetailEntity)
+        fun onLikeMovieSuccess(message:String)
     }
 
     interface Model {
-        fun saveMovie(movie:MovieEntity)
+        fun saveMovie(movie:Search)
     }
 }

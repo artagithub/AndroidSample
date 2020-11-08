@@ -79,8 +79,8 @@ class MovieSearchEngineActivity : AppCompatActivity(), MovieContract.View  {
         "Cant load images by retrofit!!".toast()
     }
 
-    override fun onLikeMovieSuccess(movieDetailEntity: MovieDetailEntity) {
-        TODO("Not yet implemented")
+    override fun onLikeMovieSuccess(message: String) {
+        message.toast()
     }
 
 //    override fun onLikeClicked(movieDetail: Search) {
